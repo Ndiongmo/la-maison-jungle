@@ -5,13 +5,13 @@ import Categories from './Categories'
 import { useState } from 'react'
 
 function ShoppingList({ cart, updateCart }) {
-	/*const categories = plantList.reduce(
+	const categories = plantList.reduce(
 		(acc, plant) =>
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
 		[]
-	)*/ 
+	)
 	
-	const [SelectedCategorie, updateShoppingList] = useState('')
+	const [selectedCategorie, updateShoppingList] = useState(' ')
 
 	function addToCart(name, price){
 		const currentPlantSaved = cart.find((plant) => plant.name === name)
@@ -31,20 +31,20 @@ function ShoppingList({ cart, updateCart }) {
 	return (
 		<div className='lmj-shopping-list'>
 			<div style={{display: "flex", justifyContent: "center"}} >
-				Categories&nbsp;<Categories SelectedCategorie={SelectedCategorie} updateShoppingList={updateShoppingList} /> 
+				<Categories categories={categories} selectedCategorie={selectedCategorie} updateShoppingList={updateShoppingList} /> 
 			</div>	  
 			<ul className='lmj-plant-list'> 
 				{
-				plantList.filter(
-					(plant) => (SelectedCategorie !== ' ' )?(plant.category === SelectedCategorie) : plant
-				).map(
-					({ id, cover, name, water, light, price }) => (
-						<div key={id} >
-							<PlantItem  cover={cover} name={name} water={water} light={light} price={price} />
-							<button onClick={() => addToCart(name, price)}>Ajouter</button>
-						</div> 
+					plantList.filter(
+						(plant) => (selectedCategorie !== ' ' )?(plant.category === selectedCategorie) : plant
+					).map(
+						({ id, cover, name, water, light, price }) => (
+							<div key={id} >
+								<PlantItem  cover={cover} name={name} water={water} light={light} price={price} />
+								<button onClick={() => addToCart(name, price)}>Ajouter</button>
+							</div> 
+						)
 					)
-				)
 				}
 			</ul>
 		</div>

@@ -1,23 +1,21 @@
- import { plantList } from '../datas/plantList'
+ import '../styles/Categories.css'
 
-function Categories({SelectedCategorie, updateShoppingList}){  
-    const categories = plantList.reduce(
-		(acc, plant) =>
-			acc.includes(plant.category) ? acc : acc.concat(plant.category),
-		[]
-	)
-
+function Categories({categories, selectedCategorie, updateShoppingList}){  
+      
     function handleSelect(e) {
 		updateShoppingList(e.target.value)  
 	}
 
     return (
-        <select onChange={handleSelect}>
-            <option value=' '></option>
-            {categories.map((cat) => (
-                <option key={cat} value={cat} >{cat}</option>
-            ))}
-        </select>
+        <div className='lmj-categories'>
+            Categories&nbsp;<select value={selectedCategorie} onChange={handleSelect} className='lmj-categories-select'>
+                <option value=' '>-----</option>
+                {categories.map((cat) => (
+                    <option key={cat} value={cat} >{cat}</option>
+                ))}
+            </select>
+            <button onClick={() => updateShoppingList(' ')}>Réinitialiser</button>
+        </div> 
     ) 
 }
 export default Categories
