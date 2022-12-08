@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+This course is from [OpenClassrooms Student Center](https://github.com/OpenClassrooms-Student-Center/7008001-Debutez-avec-React).
+
+Made by 
+### `Alexia Toulmet`(https://github.com/atoulmet)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
