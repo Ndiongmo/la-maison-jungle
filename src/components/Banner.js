@@ -1,14 +1,7 @@
-import '../styles/Banner.css'
-import Recommendation from './Recommendation'
+import "../styles/Banner.css";
 
-function Banner({children}) {
-	const title = 'La maison jungle'
-	return (
-		<div className='lmj-banner'> 
-			{children} 
-			<Recommendation />
-		</div>
-	)
+function Banner({ children }) {
+    return <div className="lmj-banner">{children}</div>;
 }
 
-export default Banner
+export default Banner;
